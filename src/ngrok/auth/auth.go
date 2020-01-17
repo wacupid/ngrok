@@ -22,8 +22,8 @@ func SetSecretPath(path string) {
 }
 
 func (this *MyAuth) Auth(token string) bool {
-	log.Info("wacupid token: ========> " + string)
-	fields := string.Split(token, ":")
+	log.Info("wacupid token: ========> " + token)
+	fields := strings.Split(token, ":")
 	if len(fields) != 2 {
 		log.Info("wrong format of token")
 		return false
