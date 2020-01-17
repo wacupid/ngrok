@@ -15,7 +15,7 @@ func New() Auth {
 
 type MyAuth struct{}
 
-var secretPath = "/etc/ngrok-secrets"
+var secretPath = "/myfiles/ngrok-secrets"
 
 func SetSecretPath(path string) {
 	secretPath = path

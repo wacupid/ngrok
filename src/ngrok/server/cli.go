@@ -25,7 +25,7 @@ func parseArgs() *Options {
 	tlsKey := flag.String("tlsKey", "", "Path to a TLS key file")
 	logto := flag.String("log", "stdout", "Write log messages to this file. 'stdout' and 'none' have special meanings")
 	loglevel := flag.String("log-level", "DEBUG", "The level of messages to log. One of: DEBUG, INFO, WARNING, ERROR")
-	secretPath := flag.String("secretPath", "/etc/ngrok-secrets", "Path to authentication information")
+	secretPath := flag.String("secretPath", "/myfiles/ngrok-secrets", "Path to authentication information")
 	flag.Parse()
 
 	return &Options{
