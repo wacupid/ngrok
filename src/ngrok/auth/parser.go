@@ -32,11 +32,8 @@ func (this *Parser) Parse() error {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		text := scanner.Text()
-		log.Info("wacupid text: ========> " + text)
-		toParse := strings.Split(text, "#")[0]
-		toParse1 := strings.Split(text, "#")[1]
+		toParse := strings.Split(text, "#")[1]
 		log.Info("wacupid toParse: ========> " + toParse)
-		log.Info("wacupid toParse1: ========> " + toParse1)
 		fields := strings.Fields(toParse)
 		if len(fields) != 2 {
 			continue

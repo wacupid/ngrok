@@ -22,7 +22,6 @@ func SetSecretPath(path string) {
 }
 
 func (this *MyAuth) Auth(token string) bool {
-	log.Info("wacupid token: ========> " + token)
 	fields := strings.Split(token, ":")
 	if len(fields) != 2 {
 		log.Info("wrong format of token")
@@ -30,8 +29,6 @@ func (this *MyAuth) Auth(token string) bool {
 	}
 	username := fields[0]
 	password := fields[1]
-	log.Info("wacupid username: ========> " + username)
-	log.Info("wacupid password: ========> " + password)
 
 	parser := NewParser(secretPath)
 	if err := parser.Parse(); err != nil {
