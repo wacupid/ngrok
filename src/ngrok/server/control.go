@@ -85,7 +85,6 @@ func NewControl(ctlConn conn.Conn, authMsg *msg.Auth) {
 	}
 
 	// auth the username and password
-	log.Info("wacupid authMsg: ========> " + authMsg)
 	log.Info("wacupid token: ========> " + authMsg.User)
 	tokenAuth := auth.New()
 	if tokenAuth.Auth(authMsg.User) == false {
