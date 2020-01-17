@@ -30,12 +30,15 @@ func (this *MyAuth) Auth(token string) bool {
 	}
 	username := fields[0]
 	password := fields[1]
+	log.Info("wacupid username: ========> " + username)
+	log.Info("wacupid password: ========> " + password)
 
 	parser := NewParser(secretPath)
 	if err := parser.Parse(); err != nil {
 		log.Warn("Parser:", err)
 		return false
 	}
+	log.Info("wacupid Tokens: ========> " + parser.Tokens[username])
 	if val, ok := parser.Tokens[username]; ok {
 		if val == password {
 			return true
