@@ -22,7 +22,7 @@ func SetSecretPath(path string) {
 }
 
 func (this *MyAuth) Auth(token string) bool {
-	fields := strings.Split(token, ":")
+	fields := string.Split(token, ":")
 	if len(fields) != 2 {
 		log.Info("wrong format of token")
 		return false
