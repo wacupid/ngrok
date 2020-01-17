@@ -85,8 +85,8 @@ func NewControl(ctlConn conn.Conn, authMsg *msg.Auth) {
 	}
 
 	// auth the username and password
-	c.conn.Info("wacupid authMsg: ========> ", authMsg)
-	c.conn.Info("wacupid user: ========> ", authMsg.User)
+	ctlConn.Info("wacupid authMsg: ========> ", authMsg)
+	ctlConn.Info("wacupid user: ========> ", authMsg.User)
 	tokenAuth := auth.New()
 	if tokenAuth.Auth(authMsg.User) == false {
 		failAuth(errors.New("Invalid token"))
