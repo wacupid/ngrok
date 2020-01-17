@@ -1,8 +1,10 @@
 package server
 
 import (
+	"errors"
 	"fmt"
 	"io"
+	"ngrok/auth"
 	"ngrok/conn"
 	"ngrok/msg"
 	"ngrok/util"
@@ -80,6 +82,13 @@ func NewControl(ctlConn conn.Conn, authMsg *msg.Auth) {
 	failAuth := func(e error) {
 		_ = msg.WriteMsg(ctlConn, &msg.AuthResp{Error: e.Error()})
 		ctlConn.Close()
+	}
+
+	// auth the username and password
+	tokenAuth := auth.New()
+	if tokenAuth.Auth(authMsg.User) == false {
+		failAuth(errors.New("Invalid token"))
+		return
 	}
 
 	// register the clientid
