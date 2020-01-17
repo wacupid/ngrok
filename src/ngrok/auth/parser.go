@@ -34,10 +34,13 @@ func (this *Parser) Parse() error {
 		text := scanner.Text()
 		log.Info("wacupid text: ========> " + text)
 		toParse := strings.Split(text, "#")[0]
+		log.Info("wacupid toParse: ========> " + toParse)
 		fields := strings.Fields(toParse)
 		if len(fields) != 2 {
 			continue
 		}
+		log.Info("wacupid fields0: ========> " + fields[0])
+		log.Info("wacupid fields1: ========> " + fields[1])
 		this.Tokens[fields[0]] = fields[1]
 	}
 
